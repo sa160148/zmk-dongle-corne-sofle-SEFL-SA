@@ -13,6 +13,15 @@
 &led_strip { chain-length = <27>; };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        concuxinhxan {
+            bindings = <&mo 1>;
+            key-positions = <0 1>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -26,27 +35,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESCAPE  &kp Q  &kp W  &kp E  &kp R      &kp T        &kp Y    &kp U         &kp I          &kp O    &kp P     &kp BACKSLASH
-&kp TAB     &kp A  &kp S  &kp D  &kp F      &kp G        &kp H    &kp J         &kp K          &kp L    &kp SEMI  &kp SQT
-&kp LSHFT   &kp Z  &kp X  &kp C  &kp V      &kp B        &kp N    &kp M         &kp COMMA      &kp DOT  &kp FSLH  &mo 2
-                          &mo 1  &kp LCTRL  &kp SPACE    &kp RET  &kp LEFT_WIN  &kp BACKSPACE
-            >;
-        };
-
-        lower_layer {
-            display-name = "LOW";
-
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            bindings = <
-&kp ESCAPE  &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6          &kp N7        &kp N8         &kp N9     &kp N0        &kp MINUS
-&kp TAB     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp HOME        &kp UP_ARROW  &trans         &kp SLASH  &kp ASTERISK  &kp EQUAL
-&kp LSHFT   &kp F2        &trans        &trans        &kp F12       &bt BT_CLR      &kp LEFT_ARROW  &kp DOWN      &kp RIGHT      &trans     &kp DEL       &kp ENTER
-                                        &mo 0         &kp LCTRL     &kp SPACE       &kp RET         &kp LEFT_WIN  &kp BACKSPACE
+&kp TAB         &kp Q  &kp W  &kp E         &kp R         &kp T        &kp Y    &kp U  &kp I      &kp O    &kp P     &kp BACKSPACE
+&kp LEFT_SHIFT  &kp A  &kp S  &kp D         &kp F         &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LCTRL       &kp Z  &kp X  &kp C         &kp V         &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
+                              &kp LEFT_WIN  &kp LEFT_ALT  &kp SPACE    &kp RET  &to 2  &to 1
             >;
         };
 
@@ -60,10 +52,27 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp ESCAPE  &kp EXCL  &kp AT           &kp HASH             &kp DLLR   &kp PRCNT         &kp CARET  &kp AMPS      &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &trans
-&kp TAB     &kp HOME  &kp PRINTSCREEN  &kp LA(PRINTSCREEN)  &trans     &kp LA(GRAVE)     &kp MINUS  &kp EQUAL     &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT   &trans    &trans           &trans               &trans     &studio_unlock    &kp UNDER  &kp PLUS      &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                                       &mo 0                &kp LCTRL  &kp SPACE         &kp RET    &kp LEFT_WIN  &kp BACKSPACE
+&kp ESCAPE  &kp EXCL  &kp AT           &kp HASH             &kp DLLR  &kp PRCNT         &kp CARET  &kp AMPS      &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp NON_US_BACKSLASH
+&kp TAB     &kp HOME  &kp PRINTSCREEN  &kp LA(PRINTSCREEN)  &trans    &kp LA(GRAVE)     &kp MINUS  &kp EQUAL     &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
+&kp LSHFT   &trans    &trans           &trans               &trans    &studio_unlock    &kp UNDER  &kp PLUS      &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
+                                       &kp LEFT_WIN         &kp LALT  &kp SPACE         &kp RET    &kp LEFT_WIN  &kp BACKSPACE
+            >;
+        };
+
+        lower_layer {
+            display-name = "LOW";
+
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
+
+            bindings = <
+&kp TAB         &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6          &kp N7        &kp N8         &kp N9     &kp N0        &kp MINUS
+&kp LEFT_SHIFT  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp HOME        &kp UP_ARROW  &trans         &kp SLASH  &kp ASTERISK  &kp EQUAL
+&kp LCTRL       &kp F2        &trans        &trans        &kp F12       &bt BT_CLR      &kp LEFT_ARROW  &kp DOWN      &kp RIGHT      &trans     &kp DEL       &kp ENTER
+                                            &kp LEFT_WIN  &kp LEFT_ALT  &kp SPACE       &kp RET         &kp LEFT_WIN  &kp BACKSPACE
             >;
         };
 
